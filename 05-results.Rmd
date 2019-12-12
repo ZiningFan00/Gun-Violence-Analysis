@@ -117,7 +117,7 @@ sum_2018 <- ggplot(gun_vio_states_2018 ,aes(x=fct_reorder(state,incident_number)
   theme(legend.position = "none")
 ```
 
-```{r echo=FALSE, fig.width=9,fig.height=15}
+```{r echo=FALSE, fig.width=9,fig.height=16}
 grid.arrange(sum_2014,sum_2015,sum_2016,sum_2017,sum_2018,ncol=2)
 ```
 
@@ -186,7 +186,7 @@ avg_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,incident_num_avg
   theme(legend.position = "none")
 ```
 
-```{r echo=FALSE, fig.width=9,fig.height=15}
+```{r echo=FALSE, fig.width=9,fig.height=16}
 grid.arrange(avg_2014,avg_2015,avg_2016,avg_2017,avg_2018,ncol=2)
 ```
 
@@ -343,8 +343,8 @@ data_new <- data_new %>%
 ```
 
 ```{r echo=FALSE, fig.width=5,fig.height=7}
-qmplot(lon,lat,data=data_new,colour="#b30000",zoom=9,size = I(0.9),alpha=.5,maptype = "toner-lite",main = "Gun violence in California in 2013")+
-  theme(legend.position="none")
+qmplot(lon,lat,data=data_new,colour="red",zoom=9,size = I(1.1),maptype = "toner-lite",main = "Gun violence in California in 2013")+
+  theme(legend.position = "none")
 ```
 
 As we could see from this plot, the gun violence incident is clustered at cities and roads, which means that gun violences is mostly happen where people are. 
@@ -373,7 +373,7 @@ p <- plot_ly(gun_vio_n_adjust_group_mrg, y = ~sum_killed_avg, color = ~Parties, 
 p
 ```
 
-In the above plot, each dot represents a state, y-axis represents the average number of people who get injured or killed of each state. The boxplots give us very interesting information. There are many outliers in Democratic Party, but the average number in Democratic Party states is lower than the states in Republican Party. 
+In the above plot, each dot represents a state, y-axis represents the average number of people who get injured or killed of each state. The boxplots give us very interesting information. There are many greater outliers in Democratic Party, but the average number in Democratic Party states is lower than the states in Republican Party. 
 
 ### Which kind of gun violence is the most common?
 
@@ -455,9 +455,9 @@ gun_vio_day_new<-gun_vio_day%>%
   summarize('incident_number'=sum(incident_number),'sum_killed'=sum(sum_killed),'sum_injured'=sum(sum_injured))
 gun_vio_day_new["adjusted_date"]<-as.Date( str_c(gun_vio_day_new$year,"-",gun_vio_day_new$month,"-15")  )
 
-p <- plot_ly(gun_vio_day_new, x = ~adjusted_date, y = ~incident_number, name = 'incident_number', type = 'scatter', mode = 'lines') %>%
+p <- plot_ly(gun_vio_day_new, x = ~adjusted_date, y = ~incident_number, name = 'incident_number', type = 'scatter', mode = 'lines+markers') %>%
   add_trace(y = ~sum_killed, name = 'sum_killed', mode = 'lines+markers') %>%
-  add_trace(y = ~sum_injured, name = 'sum_injured', mode = 'lines')
+  add_trace(y = ~sum_injured, name = 'sum_injured', mode = 'lines+markers')
 ```
 
 ```{r,fig.width=8}
@@ -512,7 +512,7 @@ Parcoord<-function(year)
   gun_vio$date<-as.Date(gun_vio$date)
   gun_vio_tp<-gun_vio[which( format(as.Date(gun_vio$date, format="%d/%m/%Y"),"%Y")==year), ]
   gun_vio_tp<-subset(gun_vio_tp,select=c("date","state","n_killed","n_injured"))
-  gun_vio_tp["n_sum"]<-as.numeric(gun_vio_tp$n_killed)+as.numeric(gun_vio_tp$n_injured)
+  gun_vio_tp["n_sum"]<-as.numeric(as.character(gun_vio_tp$n_killed))+as.numeric(as.character(gun_vio_tp$n_injured))
   gun_vio_state<-gun_vio_tp%>%
     group_by(state)%>%
     summarize(n=sum(n_sum))
@@ -532,13 +532,19 @@ Parcoord<-function(year)
   GDP_avg["GDP_avg"]=GDP_avg$GDP_total*1000000/GDP_avg$population
     
   check_vio_uem<-merge(check_vio, GDP_avg, by.x="state", by.y="state")
-
-  colnames(check_vio_uem)<-c("state","year","checking_totals","gun_violence_death","GDP_total","Year", "population",  "GDP_avg")
+  
+  check_vio_uem$n<-as.numeric(as.character( check_vio_uem$n))
+  check_vio_uem$total_year<-as.numeric(as.character( check_vio_uem$total_year))
+  check_vio_uem["checking_totals_avg"]<-check_vio_uem$total_year/check_vio_uem$population
+  check_vio_uem["gun_violence_avg"]<-check_vio_uem$n/check_vio_uem$population
+  
+                              
+  colnames(check_vio_uem)<-c("state","year","checking_totals","gun_violence_TOLL","GDP_total","Year", "population",  "GDP_avg","checking_totals_avg","gun_violence_avg")
   
   check_vio_uem<-check_vio_uem%>%
-    filter(!is.na(gun_violence_death))
+    filter(!is.na(gun_violence_TOLL))
   
-  parcoords(check_vio_uem[c("state","checking_totals","gun_violence_death","GDP_avg")],rownames = FALSE,reorder = TRUE, brushMode="1D",alpha = .3, color = list(colorScale = "scaleOrdinal",colorBy = "state", colorScheme = "schemeCategory10"), withD3 = TRUE)
+  parcoords(check_vio_uem[c("state",  "checking_totals_avg","gun_violence_avg","GDP_avg")],rownames = FALSE,reorder = TRUE, brushMode="1D",alpha = .3, color = list(colorScale = "scaleOrdinal",colorBy = "state", colorScheme = "schemeCategory10"), withD3 = TRUE)
 }
 ```
 
@@ -546,13 +552,9 @@ Parcoord<-function(year)
 Parcoord("2014")
 ```
 
-From this plot of year 2014, we could find that most lines are at the bottom of this plot. Kentucky has the largest number of background check, while Illinois and California has the largest number of death. 
-
 ```{r}
 Parcoord("2015")
 ```
-
-From the plot of year 2015, we could find that 
 
 ```{r}
 Parcoord("2016")
@@ -561,3 +563,12 @@ Parcoord("2016")
 ```{r}
 Parcoord("2017")
 ```
+
+
+Actually, patterns among those years are similar. The background checking totals, gun violence number per capita and GDP per capita are all relatively low. 
+
+Besides, according to this graph, the value of gun violence toll per capita is negative related with GDP average. As there is an obvious cross between gun_violence_TOLL and GDP_avg. Some states with relative lower gun violence toll have high probability of relative higher GDP per capita. And the relationship of background checking and gun violence TOLL is quite ambiguous, more than half of the states with lower checking totals, also have a lower gun violence TOLL, though about 20 cities with lower background checking also has a larger gun violence tolls.  
+
+The situation in District of Columbia is quite serious, as a highest GDP per capita, with lower firearm background checkings and highest gun violence tolls. As background checking means records of legal firearms, there may be a large number of illegal firearms in D.C.
+
+The mainly distribution between three variables from 2014 to 2017 is quite similar. And in 2014 and 2015, the distribution of gun violence toll per year is more lower than 2016 and 2017.

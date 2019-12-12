@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gun-violence-data" class="section level2">
 <h2><span class="header-section-number">2.1</span> Gun violence Data</h2>
 <p>This dataset about gun violence is “Gun Violence Data”, we get this dataset from <a href="https://www.kaggle.com/jameslko/gun-violence-data">kaggle</a>, the original dataset is from <a href="https://www.gunviolencearchive.org/">gunviolencearchive.org</a>. Since the data from GVA limits the number of incidents that are returned from a single query, and the website’s “Export to CSV” functionality was missing crucial fields, it’s not ready to be used. So, we use the data from kaggle, these data was obtained using web scraping. And we obtained the meaning of each column from GVA.</p>
-<p>This size of this dataset is 239677 <span class="math inline">\(\times\)</span> 29. This data set has 29 variables,</p>
+<p>This size of this dataset is 239677 <span class="math inline">\(\times\)</span> 29. This data set has 29 variables, and each row represents a records of gun violence.</p>
 <p><strong>Desctiption of each columns</strong></p>
 <table>
 <thead>
@@ -234,14 +234,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Officer Involved Shooting</td>
 <td align="left">Whether the incident is officer involved shooting</td>
 </tr>
+<tr class="odd">
+<td align="left">longitude</td>
+<td align="left">Longitude of gun violence incident</td>
+</tr>
+<tr class="even">
+<td align="left">latitude</td>
+<td align="left">Latitude of gun violence incident</td>
+</tr>
 </tbody>
 </table>
-<p>We used variables like “date”, “state”, “# killed”, “# injured”, “longitude” and “latitude”. Because the original file is quite large ( &gt;150MB ), and some columns cannot be directly used, therefore, we only select some character of each incident and build up a new dataframe.</p>
+<p>We used variables like “date”, “state”, “n_killed”, “n_injured”, “longitude” and “latitude”. Because the original file is quite large ( &gt;150MB ), and some columns cannot be directly used, therefore, we only select some character of each incident and build up a new dataframe.</p>
 </div>
 <div id="gun-background-check-data" class="section level2">
 <h2><span class="header-section-number">2.2</span> Gun background check Data</h2>
 <p>This dataset is about gun background check, and to check whether the transfer of firearms is illegal. We obtained this data from <a href="https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md">github</a>. The original dataset is from <a href="https://www.fbi.gov/services/cjis/nics">National Instant Criminal Background Check System</a>. Since the original dataset from FBI is in PDF form, we use the data from github.</p>
-<p>The size of this data is 13860 <span class="math inline">\(\times\)</span> 29. This dataset has 29 variables. And each row represents a transfer of firearm. There are three types of firearms in the dataset, handgun, long_gun and other.</p>
+<p>The size of this data is 13860 <span class="math inline">\(\times\)</span> 29. This dataset has 29 variables. And each row represents a transfer checking of firearm. There are three types of firearms in the dataset, handgun, long_gun and other.</p>
 <p><strong>Desctiption of each columns</strong></p>
 <table>
 <thead>
@@ -325,8 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gdp-data" class="section level2">
 <h2><span class="header-section-number">2.4</span> GDP Data</h2>
 <p>We would also like to find whether gun violence has something to do with ecomonic data. So we used GDP of each state to reflect the economic situation. We obtained this data about GDP from <a href="https://www.bea.gov/data/gdp/gdp-state">Bureau of Economic Analysis</a>.<br />
-The original data files are GDP data of each year from 1999 to 2018 of each states, and classified GDP of all kinds of industry and all industry total DGP are involved, therefore, we only combine total industry GDP of all states by years into a new data file. And we will use it as GDP Data.<br />
-<strong>Desctiption of each columns</strong></p>
+The original data files are GDP data of each year from 1999 to 2018 of each states, and classified GDP of all kinds of industry and all industry total DGP are involved, therefore, we only combine total industry GDP of all states by years into a new data file. And we will use it as GDP Data.</p>
 <p><strong>Desctiption of each columns</strong></p>
 <table>
 <thead>
