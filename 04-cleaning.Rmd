@@ -4,9 +4,9 @@ In this part, we would like clean dataset to get the useful data, and plot them 
 
 ## Gun Violence Data  
 
-Our entry point is gun violence data, we want to show gun violence rate in the United States. We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state.  
+Our entry point is gun violence data, we want to show gun violence rate in the United States. We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state for each year.  
 In each plot, we filter the data by Year, calculate the sum of total rates of killed as well as injured. 
-In the plot of each state,we used the columns "Longitude" and "Latitude" to get the specific spot of every incident. Then we filter the data by Year and state, each incident is plotted as a red dot on map. 
+In the plot of each state,we also used the columns "Longitude" and "Latitude" to get the specific spot of every incident. Then we filter the data by Year and state, each incident is plotted as a red dot on map. 
 Besides as we have gun shooting character analysis, therefore, "Mass Shooting", "Officer Involved", "Child/Teen Involved", "Home Invasion" columns are extracted as the main character of gun violence in each states, as the representation of safety in each states, therefore, preprocessing of "incident characteristic" and "participant age group" is been processed.  
 
 ## Gun Background Check Data  

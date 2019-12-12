@@ -71,40 +71,50 @@ gun_vio_states_2017 <- gun_vio_states %>%
 gun_vio_states_2018 <- gun_vio_states %>%
   filter(year=="2018")
 
-sum_2014 <- ggplot(gun_vio_states_2014 ,aes(x=fct_reorder(state,incident_number),y=incident_number))+
+sum_2014 <- ggplot(gun_vio_states_2014 ,aes(x=fct_reorder(state,incident_number),y=incident_number,fill="#b30000"))+
+  geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
+  ylim(0,5100)+
+  coord_flip()+
+  ggtitle("Incident Number by States in 2015")+
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
+
+sum_2015 <- ggplot(gun_vio_states_2015 ,aes(x=fct_reorder(state,incident_number),y=incident_number,fill="#b30000"))+
+  scale_fill_manual(values=c("#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Incident Number by States in 2015")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_2015 <- ggplot(gun_vio_states_2015 ,aes(x=fct_reorder(state,incident_number),y=incident_number))+
+sum_2016 <- ggplot(gun_vio_states_2016 ,aes(x=fct_reorder(state,incident_number),y=incident_number,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
-  ylim(0,5100)+
-  coord_flip()+
-  ggtitle("Incident Number by States in 2015")+
-  labs(y="incident number",x="States")
-
-sum_2016 <- ggplot(gun_vio_states_2016 ,aes(x=fct_reorder(state,incident_number),y=incident_number))+
-  geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Incident Number by States in 2016")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_2017 <- ggplot(gun_vio_states_2017 ,aes(x=fct_reorder(state,incident_number),y=incident_number))+
+sum_2017 <- ggplot(gun_vio_states_2017 ,aes(x=fct_reorder(state,incident_number),y=incident_number,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Incident Number by States in 2017")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_2018 <- ggplot(gun_vio_states_2018 ,aes(x=fct_reorder(state,incident_number),y=incident_number))+
+sum_2018 <- ggplot(gun_vio_states_2018 ,aes(x=fct_reorder(state,incident_number),y=incident_number,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Incident Number by States in 2018")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 ```
 
 ```{r echo=FALSE, fig.width=9,fig.height=15}
@@ -130,40 +140,50 @@ gun_vio_adjust_2017 <- gun_vio_adjust %>%
 gun_vio_adjust_2018 <- gun_vio_adjust %>%
   filter(year=="2018")
 
-avg_2014 <- ggplot(gun_vio_adjust_2014 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg))+
+avg_2014 <- ggplot(gun_vio_adjust_2014 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
   ggtitle("Incident Number per 100000 person by States in 2014")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg))+
+avg_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
   ggtitle("Incident Number per 100000 person by States in 2015")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg))+
+avg_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
   ggtitle("Incident Number per 100000 person by States in 2016")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg))+
+avg_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
   ggtitle("Incident Number per 100000 person by States in 2017")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg))+
+avg_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,incident_num_avg),y=incident_num_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
   ggtitle("Incident Number per 100000 person by States in 2018")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 ```
 
 ```{r echo=FALSE, fig.width=9,fig.height=15}
@@ -184,40 +204,51 @@ gun_vio_n_2016 <- gun_vio_n %>%filter(year=="2016")
 gun_vio_n_2017 <- gun_vio_n %>%filter(year=="2017")
 gun_vio_n_2018 <- gun_vio_n %>%filter(year=="2018")
 
-sum_n_2014 <- ggplot(gun_vio_n_2014 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL))+
+sum_n_2014 <- ggplot(gun_vio_n_2014 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Injured Number by States in 2014")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_n_2015 <- ggplot(gun_vio_n_2015 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL))+
+sum_n_2015 <- ggplot(gun_vio_n_2015 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Injured Number by States in 2015")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_n_2016 <- ggplot(gun_vio_n_2016 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL))+
+sum_n_2016 <- ggplot(gun_vio_n_2016 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Injured Number by States in 2016")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_n_2017 <- ggplot(gun_vio_n_2017 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL))+
+sum_n_2017 <- ggplot(gun_vio_n_2017 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Injured Number by States in 2017")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
 
-sum_n_2018 <- ggplot(gun_vio_n_2018 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL))+
+sum_n_2018 <- ggplot(gun_vio_n_2018 ,aes(x=fct_reorder(state,total_TOLL),y=total_TOLL,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
   ggtitle("Injured Number by States in 2018")+
-  labs(y="incident number",x="States")
+  labs(y="incident number",x="States")+
+  theme(legend.position = "none")
+
 ```
 
 ```{r echo=FALSE, fig.width=9 ,fig.height=15}
@@ -244,40 +275,50 @@ gun_vio_adjust_2018 <- gun_vio_n_adjust %>%
   filter(year=="2018")
 
 
-avg_n_2014 <- ggplot(gun_vio_adjust_2014 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg))+
+avg_n_2014 <- ggplot(gun_vio_adjust_2014 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
   ggtitle("Injured Number per 100000 person by States in 2014")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_n_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg))+
+avg_n_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
   ggtitle("Injured Number per 100000 person by States in 2015")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_n_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg))+
+avg_n_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
   ggtitle("Injured Number per 100000 person by States in 2016")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_n_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg))+
+avg_n_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
   ggtitle("Injured Number per 100000 person by States in 2017")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 
-avg_n_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg))+
+avg_n_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,sum_killed_avg),y=sum_killed_avg,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
   ggtitle("Injured Number per 100000 person by States in 2018")+
-  labs(y="average incident number",x="States")
+  labs(y="average incident number",x="States")+
+  theme(legend.position = "none")
 ```
 
 ```{r echo=FALSE, fig.width=9,fig.height=15}
@@ -302,7 +343,7 @@ data_new <- data_new %>%
 ```
 
 ```{r echo=FALSE, fig.width=5,fig.height=7}
-qmplot(lon,lat,data=data_new,colour=I("red"),zoom=9,size = I(0.9),alpha=.3,maptype = "toner-lite",main = "Gun violence in California in 2013")+
+qmplot(lon,lat,data=data_new,colour="#b30000",zoom=9,size = I(0.9),alpha=.5,maptype = "toner-lite",main = "Gun violence in California in 2013")+
   theme(legend.position="none")
 ```
 
@@ -380,11 +421,13 @@ character_sum_df<-gather(character_sum_df_tp)
 
 ```{r echo=FALSE}
 character_sum_df%>%filter(value>1000)%>%
-ggplot(aes(x= fct_reorder(key, value)   ,y=value))+
+ggplot(aes(x= fct_reorder(key, value)   ,y=value,fill="#b30000"))+
   geom_bar(position = "dodge", stat = "identity")+
+  scale_fill_manual(values=c("#b30000"))+
   coord_flip()+
   ggtitle("Key characteristics")+
-  xlab("key characteristics")
+  xlab("key characteristics")+
+  theme(legend.position = "none")
 ```
 
 From the plot above, we could find that there are many different types of incidents. The most common type of incident is  shot-wounded/injured, the second commen type of is shot-murder. 

@@ -17,7 +17,7 @@ library(extracat)
 
 ```{r include=FALSE}
 # read file
-gun_vio=read.csv("dataset/clean gun-violence-data_2013-3-2018-3.csv")
+gun_vio=read.csv("dataset/clean gun-violence-data_2013-3-2018-3_new.csv")
 gun_vio["year"]=str_sub( as.character(gun_vio$date),1,4)
 gun_vio<-gun_vio[which(as.numeric(as.character(gun_vio$year))>2013)  ,]
 gun_vio$date<-as.Date(gun_vio$date)
@@ -42,12 +42,10 @@ back_check["year"]=str_sub(back_check$month,1,4)
 
 ## Missing Value of Gun Violence Data  
 ```{r include=FALSE}
-# gun_vio_sum<-gun-violence-data_01-2013_03-2018.csv
-# visna(gun_vio)
+visna(gun_vio)
+colSums(is.na(gun_vio))
 ```
-A lot of data is missing in gun_vio, but the incident number and 
-
-
+As what we need of gun violence is date, state, killed number, injured number, longitude and latitude, and some character attributes. Therefore, the missing pattern are based on these volumns. As shown in the graph, more than 90% value are not missing, and only small number of gun violence records miss some lattitude and longitude. Because this dataframe is larger than 230,000 records, therefore, only missing about 8000 records is acceptable.  
 
 ## Missing Value of Gun background check Data  
 ```{r echo=FALSE}
@@ -70,4 +68,3 @@ As each "X20**" represents the GDP of each year and "GeoName" represents the sta
 colSums(is.na(population))
 ```
 There is no missing values in population data.  
-
