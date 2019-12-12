@@ -1,0 +1,4 @@
+gun data	https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md
+Census	https://www.census.gov/newsroom/press-kits/2018/pop-estimates-national-state.html
+gun violence	https://www.kaggle.com/jameslko/gun-violence-data
+gun control poll	https://www.pewresearch.org/wp-content/uploads/2019/10/FT_19.10.16_GunLaws_Topline.pdf

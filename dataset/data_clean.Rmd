@@ -1,0 +1,80 @@
+---
+title: "Data Cleaning"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyr)
+population_by_state<- read_csv("population_by_state.csv")
+population_by_state <- population_by_state[,-c(1)]
+names(population_by_state)[1]="state"
+population_by_state$state<-str_sub(population_by_state$state,2)
+names(population_by_state)[2]<-'year'
+
+write.csv(population_by_state,file = "clean_population_by_state.csv")
+```
+
+```{r}
+library(readxl)
+population_by_year <- read_excel("population by state 2010-18.xlsx")
+population_by_year <- population_by_year[c(3,4),-c(1,2,3)]
+clean_population_by_year <- t(population_by_year)
+clean_population_by_year <- as.data.frame(clean_population_by_year)
+write.csv(clean_population_by_year,file = "clean_population_by_year.csv")
+```
+
+```{r}
+library(readr)
+library(dplyr)
+gun_check<- read_csv("nics-firearm-background-checks.csv")
+gun_check <- gun_check[,c(1,2,27)]
+gun_check$Year <- c(1)
+for (i in 1:13860){
+  gun_check$Year[i] <- substr(gun_check$month[i], 1, 4)
+}
+gun_check$totals<-as.numeric(gun_check$totals)
+gun_check_year <- gun_check %>%
+  group_by(Year,state) %>%
+  summarize(total_sum=sum(totals))
+write.csv(gun_check_year,file = "clean_gun_check_year.csv")
+```
+
+```{r}
+library(stringr)
+library(lubridate)
+data <- read_csv("gun-violence-data_01-2013_03-2018.csv")
+names(data)[15] <- "lat"
+names(data)[17] <- "lon"
+data_new <- data %>% select(2,3,6,7,15,17)
+data_new$year <- c(1)
+data_new$year <- year(data_new$date)
+data_new$sum <- c(1)
+data_new$sum <- as.numeric(as.character(data_new$n_killed))+as.numeric(as.character(data_new$n_injured))
+
+data_new_sum<- data_new%>% 
+  group_by(year,state) %>%
+  summarize(total_TOLL=sum(sum))
+write.csv(data_new_sum,file = "gun_violence_sum.csv")
+```
+
+```{r}
+bind_data <- read_csv("nics-firearm-background-checks copy.csv")
+bind_data <- bind_data %>% select(2,28)
+names(bind_data)[2] <- "ABBstate"
+ABBstate <- bind_data %>%
+  group_by(state,ABBstate) %>%
+  summarize("num"=n())
+ABBstate<-select(ABBstate,1,2)
+write.csv(ABBstate,file = "ABBstate.csv")
+```
+
+```{r}
+data_new_d <- merge(data_new_d,bind_data,by="state")
+write_csv(data_new_d,file="clean")
+```
+
+

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Data sources | title to be decided</title>
+  <meta name="description" content="Chapter 2 Data sources | title to be decided" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Data sources | title to be decided" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Data sources | title to be decided" />
+  
+  
+  
+
+<meta name="author" content="Zining Fan, Xin Guo, Huiyu Song, Xiao Ji" />
+
+
+<meta name="date" content="2019-12-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="missing-values.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/parallel-coordinates-2.1.8/parcoords.css" rel="stylesheet" />
+<script src="libs/parcoords-binding-1.0.0/parcoords.js"></script>
+<script src="libs/d3-5.10.0/d3.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gun Violence</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#gun-violence-data"><i class="fa fa-check"></i><b>2.1</b> Gun violence Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#gun-background-check-data"><i class="fa fa-check"></i><b>2.2</b> Gun background check Data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#population-data"><i class="fa fa-check"></i><b>2.3</b> Population Data</a></li>
+<li class="chapter" data-level="2.4" data-path="data-sources.html"><a href="data-sources.html#gdp-data"><i class="fa fa-check"></i><b>2.4</b> GDP Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>3</b> Missing values</a><ul>
+<li class="chapter" data-level="3.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-of-gun-violence-data"><i class="fa fa-check"></i><b>3.1</b> Missing Value of Gun Violence Data</a></li>
+<li class="chapter" data-level="3.2" data-path="missing-values.html"><a href="missing-values.html#missing-value-of-gun-background-check-data"><i class="fa fa-check"></i><b>3.2</b> Missing Value of Gun background check Data</a></li>
+<li class="chapter" data-level="3.3" data-path="missing-values.html"><a href="missing-values.html#missing-value-of-gdp-and-population-data"><i class="fa fa-check"></i><b>3.3</b> Missing Value of GDP and Population data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>4</b> Data Cleaning</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-cleaning.html"><a href="data-cleaning.html#gun-violence-data-1"><i class="fa fa-check"></i><b>4.1</b> Gun Violence Data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-cleaning.html"><a href="data-cleaning.html#gun-background-check-data-1"><i class="fa fa-check"></i><b>4.2</b> Gun Background Check Data</a></li>
+<li class="chapter" data-level="4.3" data-path="data-cleaning.html"><a href="data-cleaning.html#population-data-1"><i class="fa fa-check"></i><b>4.3</b> Population Data</a></li>
+<li class="chapter" data-level="4.4" data-path="data-cleaning.html"><a href="data-cleaning.html#gdp-data-1"><i class="fa fa-check"></i><b>4.4</b> GDP Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#exploring-the-gun-violence-data"><i class="fa fa-check"></i><b>5.1</b> Exploring the Gun Violence Data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#how-many-gun-violence-incidents-happened-every-year-in-each-state"><i class="fa fa-check"></i><b>5.1.1</b> How many gun violence incidents happened every year in each state?</a></li>
+<li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#how-many-people-get-injured"><i class="fa fa-check"></i><b>5.1.2</b> How many people get injured?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="results.html"><a href="results.html#where-does-these-gun-violence-happen"><i class="fa fa-check"></i><b>5.1.3</b> Where does these gun violence happen?</a></li>
+<li class="chapter" data-level="5.1.4" data-path="results.html"><a href="results.html#which-kind-of-gun-violence-is-the-most-common"><i class="fa fa-check"></i><b>5.1.4</b> Which kind of gun violence is the most common?</a></li>
+<li class="chapter" data-level="5.1.5" data-path="results.html"><a href="results.html#when-does-gun-violence-happen"><i class="fa fa-check"></i><b>5.1.5</b> When does gun violence happen?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#effects-of-gun-possesion"><i class="fa fa-check"></i><b>5.2</b> Effects of Gun Possesion</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="results.html"><a href="results.html#how-does-the-gun-change-rate-influence-the-gun-violence-status"><i class="fa fa-check"></i><b>5.2.1</b> How does the gun change rate influence the gun violence status?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#effects-of-gdp-data"><i class="fa fa-check"></i><b>5.3</b> Effects of GDP data</a></li>
+<li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#combining-these-variables"><i class="fa fa-check"></i><b>5.4</b> Combining these variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">title to be decided</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-sources" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Data sources</h1>
+<p>In this project, we used several data sources.</p>
+<div id="gun-violence-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> Gun violence Data</h2>
+<p>This dataset about gun violence is “Gun Violence Data”, we get this dataset from <a href="https://www.kaggle.com/jameslko/gun-violence-data">kaggle</a>, the original dataset is from <a href="https://www.gunviolencearchive.org/">gunviolencearchive.org</a>. Since the data from GVA limits the number of incidents that are returned from a single query, and the website’s “Export to CSV” functionality was missing crucial fields, it’s not ready to be used. So, we use the data from kaggle, these data was obtained using web scraping. And we obtained the meaning of each column from GVA.</p>
+<p>This size of this dataset is 239677 <span class="math inline">\(\times\)</span> 29. This data set has 29 variables,</p>
+<p><strong>Desctiption of each columns</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Colnames</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">n_killed</td>
+<td align="left">Total number of killed people in the shooting</td>
+</tr>
+<tr class="even">
+<td align="left">n_injured</td>
+<td align="left">Total number of injured people in the shooting</td>
+</tr>
+<tr class="odd">
+<td align="left">Children/Teens Involve</td>
+<td align="left">Whether the incident is children or teenagers involved</td>
+</tr>
+<tr class="even">
+<td align="left">Mass Shooting</td>
+<td align="left">Whether the incident is mass shooting</td>
+</tr>
+<tr class="odd">
+<td align="left">Home Invasion</td>
+<td align="left">Whether the incident is home invasion</td>
+</tr>
+<tr class="even">
+<td align="left">Officer Involved Shooting</td>
+<td align="left">Whether the incident is officer involved shooting</td>
+</tr>
+</tbody>
+</table>
+<p>We used variables like “date”, “state”, “# killed”, “# injured”, “longitude” and “latitude”. Because the original file is quite large ( &gt;150MB ), and some columns cannot be directly used, therefore, we only select some character of each incident and build up a new dataframe.</p>
+</div>
+<div id="gun-background-check-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> Gun background check Data</h2>
+<p>This dataset is about gun background check, and to check whether the transfer of firearms is illegal. We obtained this data from <a href="https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md">github</a>. The original dataset is from <a href="https://www.fbi.gov/services/cjis/nics">National Instant Criminal Background Check System</a>. Since the original dataset from FBI is in PDF form, we use the data from github.</p>
+<p>The size of this data is 13860 <span class="math inline">\(\times\)</span> 29. This dataset has 29 variables. And each row represents a transfer of firearm. There are three types of firearms in the dataset, handgun, long_gun and other.</p>
+<p><strong>Desctiption of each columns</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Colnames</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">permit</td>
+<td align="left">Total number of transfers which is permitted in one check</td>
+</tr>
+<tr class="even">
+<td align="left">prepawn_##</td>
+<td align="left">Total number of prepawn transfers in one check</td>
+</tr>
+<tr class="odd">
+<td align="left">redemption_##</td>
+<td align="left">Total number of redemption transfers in one check</td>
+</tr>
+<tr class="even">
+<td align="left">returned_##</td>
+<td align="left">Total number of transfers of returning firearm to the owner in one check</td>
+</tr>
+<tr class="odd">
+<td align="left">rentals_##</td>
+<td align="left">Total number of rental transfers in one check</td>
+</tr>
+<tr class="even">
+<td align="left">private_sale_##</td>
+<td align="left">Total number of private sale transfers in one check</td>
+</tr>
+<tr class="odd">
+<td align="left">return_to_seller_##</td>
+<td align="left">Total number of transfers of returning firearm to the seller in one check</td>
+</tr>
+<tr class="even">
+<td align="left">totals</td>
+<td align="left">Total number of incidents in one check</td>
+</tr>
+<tr class="odd">
+<td align="left">X28</td>
+<td align="left">The abbreviation of states</td>
+</tr>
+</tbody>
+</table>
+<p>We are only interested in the total number of the gun background data “totals”.</p>
+</div>
+<div id="population-data" class="section level2">
+<h2><span class="header-section-number">2.3</span> Population Data</h2>
+<p>The population data was obtained from <a href="https://www.census.gov/newsroom/press-kits/2018/pop-estimates-national-state.html">Census</a>. Since the number of gun violence and background check is based on population, we would like to look rate numbers rather than total numbers. We only got the population of each state from year 2010 to year 2018.</p>
+<p><strong>Desctiption of each columns</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Colnames</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X1</td>
+<td align="left">Index of each column</td>
+</tr>
+<tr class="even">
+<td align="left">state</td>
+<td align="left">State name</td>
+</tr>
+<tr class="odd">
+<td align="left">year</td>
+<td align="left">year</td>
+</tr>
+<tr class="even">
+<td align="left">population</td>
+<td align="left">population by the year</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="gdp-data" class="section level2">
+<h2><span class="header-section-number">2.4</span> GDP Data</h2>
+<p>We would also like to find whether gun violence has something to do with ecomonic data. So we used GDP of each state to reflect the economic situation. We obtained this data about GDP from <a href="https://www.bea.gov/data/gdp/gdp-state">Bureau of Economic Analysis</a>.<br />
+The original data files are GDP data of each year from 1999 to 2018 of each states, and classified GDP of all kinds of industry and all industry total DGP are involved, therefore, we only combine total industry GDP of all states by years into a new data file. And we will use it as GDP Data.<br />
+<strong>Desctiption of each columns</strong></p>
+<p><strong>Desctiption of each columns</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Colnames</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">GeoName</td>
+<td align="left">State name</td>
+</tr>
+<tr class="even">
+<td align="left">ComponentName</td>
+<td align="left">Gross domestic product (GDP) by state Millions of current dollars</td>
+</tr>
+<tr class="odd">
+<td align="left">Description</td>
+<td align="left">All industry total</td>
+</tr>
+<tr class="even">
+<td align="left">Xyyyy</td>
+<td align="left">GDP of yyyy year</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="missing-values.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ZiningFan00/GunViolenceReport/edit/master/02-data.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ZiningFan00/GunViolenceReport/blob/master/02-data.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

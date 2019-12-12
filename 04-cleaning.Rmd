@@ -1,0 +1,22 @@
+# Data Cleaning  
+
+In this part, we would like clean dataset to get the useful data, and plot them to show useful information. 
+
+## Gun Violence Data  
+
+Our entry point is gun violence data, we want to show gun violence rate in the United States. We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state.  
+In each plot, we filter the data by Year, calculate the sum of total rates of killed as well as injured. 
+In the plot of each state,we used the columns "Longitude" and "Latitude" to get the specific spot of every incident. Then we filter the data by Year and state, each incident is plotted as a red dot on map. 
+Besides as we have gun shooting character analysis, therefore, "Mass Shooting", "Officer Involved", "Child/Teen Involved", "Home Invasion" columns are extracted as the main character of gun violence in each states, as the representation of safety in each states, therefore, preprocessing of "incident characteristic" and "participant age group" is been processed.  
+
+## Gun Background Check Data  
+
+As a large number of data are missing in this dataframe, only "states","date","totals" columns with no missing value. And other columns are not used.  
+
+## Population Data
+
+We cleaned the population data to transform it into the population by state and by year. The cleaned data is in the folder of "dataset", named "clean_population_by_state".  
+
+## GDP Data  
+
+The GDP data is total GDP of each states from 1999 to 2018. And units of it is Millions of current dollars. As it has been already combined when collecting, therefore, there is no need to clean this data.  

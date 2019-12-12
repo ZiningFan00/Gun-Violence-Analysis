@@ -1,0 +1,77 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Data sources
+
+In this project, we used several data sources. 
+
+## Gun violence Data
+
+This dataset about gun violence is "Gun Violence Data", we get this dataset from [kaggle](https://www.kaggle.com/jameslko/gun-violence-data), the original dataset is from [gunviolencearchive.org](https://www.gunviolencearchive.org/). Since the data from GVA limits the number of incidents that are returned from a single query, and the website's "Export to CSV" functionality was missing crucial fields, it's not ready to be used. So, we use the data from kaggle, these data was obtained using web scraping. And we obtained the meaning of each column from GVA. 
+
+This size of this dataset is 239677 $\times$ 29. This data set has 29 variables, 
+```{r include=FALSE}
+library(readr)
+data <- read_csv("dataset/clean gun-violence-data_2013-3-2018-3.csv")
+```
+
+**Desctiption of each columns**  
+```{r,echo=FALSE}
+res=data.frame(Colnames=c('n_killed','n_injured','Children/Teens Involve','Mass Shooting','Home Invasion','Officer Involved Shooting'),Meaning=c('Total number of killed people in the shooting','Total number of injured people in the shooting','Whether the incident is children or teenagers involved','Whether the incident is mass shooting','Whether the incident is home invasion', 'Whether the incident is officer involved shooting'))
+res=knitr::kable(res)
+res
+```
+
+We used variables like "date", "state", "# killed", "# injured", "longitude" and "latitude". Because the original file is quite large ( >150MB ), and some columns cannot be directly used, therefore, we only select some character of each incident and build up a new dataframe.  
+
+## Gun background check Data
+
+This dataset is about gun background check, and to check whether the transfer of firearms is illegal. We obtained this data from [github](https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md). The original dataset is from [National Instant Criminal Background Check System](https://www.fbi.gov/services/cjis/nics). Since the original dataset from FBI is in PDF form, we use the data from github. 
+
+The size of this data is 13860 $\times$ 29. This dataset has 29 variables. And each row represents a transfer of firearm. There are three types of firearms in the dataset, handgun, long_gun and other.  
+
+```{r include=FALSE}
+data <- read.csv("dataset/nics-firearm-background-checks copy.csv")
+```
+**Desctiption of each columns**  
+```{r,echo=FALSE}
+res=data.frame(Colnames=c('permit','prepawn_##',"redemption_##",'returned_##','rentals_##','private_sale_##','return_to_seller_##','totals','X28'),Meaning=c('Total number of transfers which is permitted in one check','Total number of prepawn transfers in one check','Total number of redemption transfers in one check','Total number of transfers of returning firearm to the owner in one check','Total number of rental transfers in one check', 'Total number of private sale transfers in one check','Total number of transfers of returning firearm to the seller in one check' ,'Total number of incidents in one check','The abbreviation of states'))
+res=knitr::kable(res)
+res
+```
+
+We are only interested in the total number of the gun background data "totals". 
+
+## Population Data
+
+The population data was obtained from [Census](https://www.census.gov/newsroom/press-kits/2018/pop-estimates-national-state.html). Since the number of gun violence and background check is based on population, we would like to look rate numbers rather than total numbers. We only got the population of each state from year 2010 to year 2018.  
+```{r include=FALSE}
+data <- read.csv("dataset/clean_population_by_state.csv")
+```
+
+**Desctiption of each columns**  
+```{r,echo=FALSE}
+res=data.frame(Colnames=c('X1','state','year','population'),Meaning=c('Index of each column','State name','year','population by the year'))
+res=knitr::kable(res)
+res
+```
+
+
+## GDP Data  
+
+We would also like to find whether gun violence has something to do with ecomonic data. So we used GDP of each state to reflect the economic situation. We obtained this data about GDP from [Bureau of Economic Analysis](https://www.bea.gov/data/gdp/gdp-state).  
+The original data files are GDP data of each year from 1999 to 2018 of each states, and classified GDP of all kinds of industry and all industry total DGP are involved, therefore, we only combine total industry GDP of all states by years into a new data file. And we will use it as GDP Data.  
+**Desctiption of each columns**  
+```{r include=FALSE}
+GDP<-read.csv("dataset/GDP_states.csv")
+```
+
+**Desctiption of each columns**  
+```{r,echo=FALSE}
+res=data.frame(Colnames=c('GeoName','ComponentName',"Description",'Xyyyy'),Meaning=c('State name','Gross domestic product (GDP) by state Millions of current dollars ','All industry total','GDP of yyyy year'))
+res=knitr::kable(res)
+res
+```
+

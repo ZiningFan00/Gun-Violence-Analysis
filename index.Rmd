@@ -1,0 +1,12 @@
+--- 
+title: "title to be decided "
+author: "Zining Fan, Xin Guo, Huiyu Song, Xiao Ji"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Introduction
+
+The United States is one of the countries in which firearm possession is legal. In the US, the legal basis for gun possession is enshrined in the Second Amendment of the Constitution. People are always curious to know how the gun is controlled and what influence gun would bring to our life. In this project, we would like to use gun violence data as an entry point, tring to answer some questions. 
+
+![](img/img1.jpg)

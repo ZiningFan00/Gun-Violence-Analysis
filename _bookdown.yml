@@ -1,0 +1,8 @@
+book_filename: "finalproj"
+output_dir: docs
+delete_merged_file: true
+edit: https://github.com/ZiningFan00/GunViolenceReport/edit/master/%s
+view: https://github.com/ZiningFan00/GunViolenceReport/blob/master/%s
+language:
+  ui:
+    chapter_name: "Chapter "
