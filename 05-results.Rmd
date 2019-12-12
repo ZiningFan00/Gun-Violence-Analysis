@@ -552,6 +552,8 @@ From this plot of year 2014, we could find that most lines are at the bottom of 
 Parcoord("2015")
 ```
 
+From the plot of year 2015, we could find that 
+
 ```{r}
 Parcoord("2016")
 ```
