@@ -1,5 +1,5 @@
 --- 
-title: "Where is the most  "
+title: "Exploring the Gun Violence in the US"
 author: "Zining Fan, Xin Guo, Huiyu Song, Xiao Ji"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

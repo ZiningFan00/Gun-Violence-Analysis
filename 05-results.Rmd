@@ -23,7 +23,7 @@ library(plotly)
 
 ```{r include=FALSE}
 # read file
-gun_vio=read.csv("dataset/clean gun-violence-data_2013-3-2018-3.csv")
+gun_vio=read.csv("dataset/clean gun-violence-data_2013-3-2018-3_new.csv")
 gun_vio["year"]=str_sub( as.character(gun_vio$date),1,4)
 gun_vio<-gun_vio[which(as.numeric(as.character(gun_vio$year))>2013)  ,]
 gun_vio$date<-as.Date(gun_vio$date)
@@ -154,7 +154,7 @@ avg_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,incident_num_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
-  ggtitle("Incident Number per 100000 person by States in 2015")+
+  ggtitle("Incident Number per 100000 person in 2015")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -163,7 +163,7 @@ avg_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,incident_num_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
-  ggtitle("Incident Number per 100000 person by States in 2016")+
+  ggtitle("Incident Number per 100000 person in 2016")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -172,7 +172,7 @@ avg_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,incident_num_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
-  ggtitle("Incident Number per 100000 person by States in 2017")+
+  ggtitle("Incident Number per 100000 person in 2017")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -181,7 +181,7 @@ avg_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,incident_num_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,170)+
   coord_flip()+
-  ggtitle("Incident Number per 100000 person by States in 2018")+
+  ggtitle("Incident Number per 100000 person in 2018")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 ```
@@ -218,7 +218,7 @@ sum_n_2015 <- ggplot(gun_vio_n_2015 ,aes(x=fct_reorder(state,total_TOLL),y=total
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
-  ggtitle("Injured Number by States in 2015")+
+  ggtitle("Number of Casualties in 2015")+
   labs(y="incident number",x="States")+
   theme(legend.position = "none")
 
@@ -227,7 +227,7 @@ sum_n_2016 <- ggplot(gun_vio_n_2016 ,aes(x=fct_reorder(state,total_TOLL),y=total
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
-  ggtitle("Injured Number by States in 2016")+
+  ggtitle("Number of Casualties in 2016")+
   labs(y="incident number",x="States")+
   theme(legend.position = "none")
 
@@ -236,7 +236,7 @@ sum_n_2017 <- ggplot(gun_vio_n_2017 ,aes(x=fct_reorder(state,total_TOLL),y=total
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
-  ggtitle("Injured Number by States in 2017")+
+  ggtitle("Number of Casualties in 2017")+
   labs(y="incident number",x="States")+
   theme(legend.position = "none")
 
@@ -245,7 +245,7 @@ sum_n_2018 <- ggplot(gun_vio_n_2018 ,aes(x=fct_reorder(state,total_TOLL),y=total
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,5100)+
   coord_flip()+
-  ggtitle("Injured Number by States in 2018")+
+  ggtitle("Number of Casualties in 2018")+
   labs(y="incident number",x="States")+
   theme(legend.position = "none")
 
@@ -280,7 +280,7 @@ avg_n_2014 <- ggplot(gun_vio_adjust_2014 ,aes(x=fct_reorder(state,sum_killed_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
-  ggtitle("Injured Number per 100000 person by States in 2014")+
+  ggtitle("Number of Casualties per 100k person in 2014")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -289,7 +289,7 @@ avg_n_2015 <- ggplot(gun_vio_adjust_2015 ,aes(x=fct_reorder(state,sum_killed_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
-  ggtitle("Injured Number per 100000 person by States in 2015")+
+  ggtitle("Number of Casualties per 100k person in 2015")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -298,7 +298,7 @@ avg_n_2016 <- ggplot(gun_vio_adjust_2016 ,aes(x=fct_reorder(state,sum_killed_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
-  ggtitle("Injured Number per 100000 person by States in 2016")+
+  ggtitle("Number of Casualties per 100k person in 2016")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -307,7 +307,7 @@ avg_n_2017 <- ggplot(gun_vio_adjust_2017 ,aes(x=fct_reorder(state,sum_killed_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
-  ggtitle("Injured Number per 100000 person by States in 2017")+
+  ggtitle("Number of Casualties per 100k person in 2017")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 
@@ -316,7 +316,7 @@ avg_n_2018 <- ggplot(gun_vio_adjust_2018 ,aes(x=fct_reorder(state,sum_killed_avg
   scale_fill_manual(values=c("#b30000"))+
   ylim(0,70)+
   coord_flip()+
-  ggtitle("Injured Number per 100000 person by States in 2018")+
+  ggtitle("Number of Casualties per 100000 person in 2018")+
   labs(y="average incident number",x="States")+
   theme(legend.position = "none")
 ```
@@ -329,17 +329,16 @@ This pattern is also similar to the pattern of incident number per 100000 person
 
 ### Where does these gun violence happen?
 
-Then, we zoomed in the map to find the exact location of each gun incident. We ploted each event as a red dot on the map. The following plot shows the gun violence in California in 2013, 
+Then, we zoomed in the map to find the exact location of each gun incident. We ploted each event as a red dot on the map. The following plot shows the gun violence in California in 2017, 
 ```{r include=FALSE}
-data <- read_csv("dataset/gun-violence-data_01-2013_03-2018.csv")
-names(data)[15] <- "lat"
-names(data)[17] <- "lon"
-data$date <- as.character(data$date)
-data_new <- data %>%
+names(gun_vio)[5] <- "lat"
+names(gun_vio)[6] <- "lon"
+gun_vio$date <- as.character(gun_vio$date)
+data_new <- gun_vio %>%
   filter(state=="California")
 data_new["year"]=str_sub( as.character(data_new$date),1,4)
 data_new <- data_new %>%
-  filter(year=="2013")
+  filter(year=="2017")
 ```
 
 ```{r echo=FALSE, fig.width=5,fig.height=7}
@@ -355,7 +354,7 @@ Then we separated the US into two parts by Democratic Party and Republican Party
 gun_vio_n_adjust = merge(gun_vio,population, by.x=c("state", "year"), by.y=c("state", "year"))
 
 gun_vio_n_adjust['sum_killed_avg']<-(as.numeric(as.character(gun_vio_n_adjust$n_killed))+ as.numeric(as.character(gun_vio_n_adjust$n_injured)) )/as.numeric(as.character(gun_vio_n_adjust$population))*100000
-gun_vio_n_adjust<-select(gun_vio_n_adjust,1,2,3,10,11,12)
+gun_vio_n_adjust<-select(gun_vio_n_adjust,1,2,3,4,5,12,14)
 
 gun_vio_n_adjust<-select(gun_vio_n_adjust,-3)
 gun_vio_n_adjust_group<-gun_vio_n_adjust%>%
@@ -364,7 +363,6 @@ gun_vio_n_adjust_group<-gun_vio_n_adjust%>%
 gun_vio_n_adjust_group<-as.data.frame(gun_vio_n_adjust_group)
 gun_vio_n_adjust_group_mrg<-merge(gun_vio_n_adjust_group,states_party,by.x='state',by.y='State')
 
-library(plotly)
 p <- plot_ly(gun_vio_n_adjust_group_mrg, y = ~sum_killed_avg, color = ~Parties, title="Gun Violence by Parties",colors = c('blue',  'red'),type = "box") %>%
   layout(title="Boxplot of people killed/injured per 100,000 person by Party")
 ```
@@ -470,11 +468,38 @@ The above plot shows the sum of incident number, number of killed and number of 
 
 Since the numbers of firearm possesions are different among states, it might have something to do with the gun violence. 
 
-### How does the gun change rate influence the gun violence status?
+### How does the gun possesion change rate influence the gun violence status?
 
-## Effects of GDP data
+Intuitively gun possesion of each states may be related with gun violence. "total" in each rows in firearm background checking represents the number of transfer of firearms. Therefore, it can show the gun possession for each states. We extracted the records of the United States in 2017 and also use gun violence casualty in 2017.
 
-We also would like to find whether there is something to do with the ecnomic situation. We choosed to use GDP of each state to represent the economic situation. We extracted the GDP of the United States of year 2017 and the incident number of each state in 2017. In the scatterplot, each dot is a state, x-axis is GDP of this state, y-axis is incident of this state. 
+
+```{r include=FALSE}
+back_check_sub <- back_check %>%
+  select(1,2,27,29)
+back_check_sub_2017 <- back_check_sub %>%
+  filter(year=="2017")
+
+back_check_2017 <- merge(gun_vio_n_2017,back_check_sub_2017,by.x = "state",by.y = "state")
+colnames(back_check_2017)<-c("state","X","year","Casualty","month","Background_Checking","year2")
+back_check_plot <- plot_ly(data = back_check_2017, x = ~Background_Checking, y = ~Casualty,
+        marker = list(size = 4,
+                       color = '#b30000',
+                       line = list(color = '#b30000',
+                                   width = 0.2))) %>%
+  layout(title = 'Background Checking Number-Incident Number-2017',
+         yaxis = list(zeroline = FALSE),
+         xaxis = list(zeroline = FALSE))
+```
+
+```{r}
+back_check_plot
+```
+
+From the plot above, we could find that most states with a relatively large number of checking records also have a large number of gun violence casualty, they are positively related with each other. In addition, there are some outliers in the right part of the plot. These states have extremely large number of checking records with a small number of casualty.
+
+## Effects of GDP Data
+
+We also would like to find whether there is something to do with the ecnomic situation. We choosed to use GDP of each state to represent the economic situation. Since there are few differences from 2014 to 2017, we choose to show the data in 2017. We extracted the GDP of the United States of year 2017 and the incident number of each state in 2017. In the scatterplot, each dot is a state, x-axis is GDP of this state, y-axis is incident of this state. 
 
 ```{r include=FALSE}
 GDP_2017 <- GDP_sub %>%
@@ -482,12 +507,13 @@ GDP_2017 <- GDP_sub %>%
 gun_vio_n_2017 <- gun_vio_n %>%
   filter(year=="2017")
 GDP_2017 <- merge(GDP_2017,gun_vio_n_2017,by.x = "GeoName",by.y = "state")
-GDP_2017_plot <- plot_ly(data = GDP_2017, x = ~X2017, y = ~total_TOLL,
-        marker = list(size = 10,
-                       color = 'rgba(255, 182, 193, .9)',
-                       line = list(color = 'rgba(152, 0, 0, .8)',
-                                   width = 2))) %>%
-  layout(title = 'GDP-incident number-2017',
+names(GDP_2017)[5]<-"Casualty"
+GDP_2017_plot <- plot_ly(data = GDP_2017, x = ~X2017, y = ~Casualty,
+        marker = list(size = 6,
+                       color = '#b30000',
+                       line = list(color = '#b30000',
+                                   width = 1))) %>%
+  layout(title = 'GDP-Incident Number-2017',
          yaxis = list(zeroline = FALSE),
          xaxis = list(zeroline = FALSE))
 ```
@@ -496,7 +522,9 @@ GDP_2017_plot <- plot_ly(data = GDP_2017, x = ~X2017, y = ~total_TOLL,
 GDP_2017_plot
 ```
 
-## Combining these variables
+From the plot above, we could find that the GDP is positively related to the checking number. There are some outliers with large GDP and large check number. 
+
+## Combining these Variables
 
 Now, we introduced gun violence data, background check data as well as GDP data. How do these variabled combine with each other? We use parallel coordinates charts to show their relations.
 

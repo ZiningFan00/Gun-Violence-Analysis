@@ -4,7 +4,8 @@ In this part, we would like clean dataset to get the useful data, and plot them 
 
 ## Gun Violence Data  
 
-Our entry point is gun violence data, we want to show gun violence rate in the United States. We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state for each year.  
+Our entry point is gun violence data, we want to show gun violence rate in the United States. As this dataset only consists of records from 2014 to 2018, our analysis is only focused from 2014 to 2018. We only have the first quarter violence data for 2018, so the number of casualties in 2018 is smaller than other years.
+We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state for each year.  
 In each plot, we filter the data by Year, calculate the sum of total rates of killed as well as injured. 
 In the plot of each state,we also used the columns "Longitude" and "Latitude" to get the specific spot of every incident. Then we filter the data by Year and state, each incident is plotted as a red dot on map. 
 We also check correctness of the longitude and latitude. As longitude range of US is (-161,-68.1).We filtered the incorrect records which is out of the range.  

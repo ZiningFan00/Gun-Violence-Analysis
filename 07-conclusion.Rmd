@@ -1,5 +1,9 @@
 # Conclusion
 
+## Our Work
+
+## Our Difficulties
+
 We suffered a lot in this project. However, we also learned a lot after finishing this project. 
 
 Since gun is not allowed in our country while is legal in United States, we are curious about it. At the very start, we decided to explore something about gun violence in United States. Then we realized we need more data to support our analysis. We started to find population data, background check data as well as the GDP data. 
@@ -7,3 +11,6 @@ Since gun is not allowed in our country while is legal in United States, we are 
 Transforming and cleaning data is kind of painful, and the size of our data is really large. Anyway, we figured it out. 
 
 It's the first we use bookdown and shiny. Both are very weird. We encounterred many problems. The published bookdown does not show the images generated from R chuncks. The shiny app is really slow. 
+
+## Future Work
+

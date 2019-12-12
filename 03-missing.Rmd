@@ -1,4 +1,4 @@
-# Missing values
+# Missing Values
 
 ```{r include=FALSE}
 library(ggplot2)
@@ -47,7 +47,7 @@ colSums(is.na(gun_vio))
 ```
 As what we need of gun violence is date, state, killed number, injured number, longitude and latitude, and some character attributes. Therefore, the missing pattern are based on these volumns. As shown in the graph, more than 90% value are not missing, and only small number of gun violence records miss some lattitude and longitude. Because this dataframe is larger than 230,000 records, therefore, only missing about 8000 records is acceptable.  
 
-## Missing Value of Gun background check Data  
+## Missing Value of Gun Background Check Data  
 ```{r echo=FALSE}
 visna(back_check,sort="b")
 colSums(is.na(back_check))
@@ -58,7 +58,7 @@ A lot of firearm background checking data are missing, this is out of two reason
 **The missing details of purchasing**: For example, there are some missing values in 'private_sale' ('private_sale_handgun', 'private_sale_long_gun', 'private_sale_other'), as private sellers represent unlicensed sellers, and only 24/50 states has gun laws about back ground checking When Seller Is Not a Licensed Dealer (https://consumer.findlaw.com/consumer-transactions/private-gun-sale-laws-by-state.html), therefore, some details of private sales are missing.  
 According to the summary of missing values, the most common mode of missing value is missing returned firearms, private sales and permit recheck data. As the what we used of this dataframe is totals, and this column has no missing values, therefore, it can be used.  
 
-## Missing Value of GDP and Population data  
+## Missing Value of GDP and Population Data  
 ```{r}
 colSums(is.na(GDP))
 ```

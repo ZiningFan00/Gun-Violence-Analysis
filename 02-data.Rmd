@@ -3,11 +3,11 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# Data sources
+# Data Sources
 
 In this project, we used several data sources. 
 
-## Gun violence Data
+## Gun Violence Data
 
 This dataset about gun violence is "Gun Violence Data", we get this dataset from [kaggle](https://www.kaggle.com/jameslko/gun-violence-data), the original dataset is from [gunviolencearchive.org](https://www.gunviolencearchive.org/). Since the data from GVA limits the number of incidents that are returned from a single query, and the website's "Export to CSV" functionality was missing crucial fields, it's not ready to be used. So, we use the data from kaggle, these data was obtained using web scraping. And we obtained the meaning of each column from GVA.  
 
@@ -26,9 +26,9 @@ res
 
 We used variables like "date", "state", "n_killed", "n_injured", "longitude" and "latitude". Because the original file is quite large ( >150MB ), and some columns cannot be directly used, therefore, we only select some character of each incident and build up a new dataframe.  
 
-## Gun background check Data
+## Gun Background Check Data
 
-This dataset is about gun background check, and to check whether the transfer of firearms is illegal. We obtained this data from [github](https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md). The original dataset is from [National Instant Criminal Background Check System](https://www.fbi.gov/services/cjis/nics). Since the original dataset from FBI is in PDF form, we use the data from github. 
+This dataset is about gun background check, and to check whether the transfer of firearms is illegal. We obtained this data from [github](https://github.com/BuzzFeedNews/nics-firearm-background-checks/blob/master/README.md), it says that "The FBI’s NICS numbers are widely accepted as the best proxy for total gun sales in a given time period". The original dataset is from [National Instant Criminal Background Check System](https://www.fbi.gov/services/cjis/nics). Since the original dataset from FBI is in PDF form, we use the data from github.
 
 The size of this data is 13860 $\times$ 29. This dataset has 29 variables. And each row represents a transfer checking of firearm. There are three types of firearms in the dataset, handgun, long_gun and other.  
 
