@@ -3,4 +3,4 @@
 We do the interactive part in Shiny, you could open shiny through this [link](https://jessie-xj.shinyapps.io/Exploring_gun_violence_in_us/). The UI is shown like:
 ![](img/img3.jpg)
 
-The shiny app shows the toll damage caused by the gun violence incidents of each state in each year. On the left panel the 10 states with highest toll rate are shown. Click the state of interest in the map, the right panel would show the information of the corresponding incidents causing the damage.
+The shiny app shows the casualty caused by the gun violence incidents of each state in each year. On the left panel the 10 states with highest toll rate are shown. Click the state of interest in the map, the right panel would show the information of the corresponding incidents causing the damage.

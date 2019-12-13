@@ -1,24 +1,23 @@
 # Data Cleaning  
 
-In this part, we would like clean dataset to get the useful data, and plot them to show useful information. 
+In this part, we would like to clean the datasets to get the useful data, and plot them to show useful information. 
 
 ## Gun Violence Data  
 
-Our entry point is gun violence data, we want to show gun violence rate in the United States. As this dataset only consists of records from 2014 to 2018, our analysis is only focused from 2014 to 2018. We only have the first quarter violence data for 2018, so the number of casualties in 2018 is smaller than other years.
-We sumed columns "n_killed" and "n_injured" of every incident, and divide the population of this state for each year.  
-In each plot, we filter the data by Year, calculate the sum of total rates of killed as well as injured. 
-In the plot of each state,we also used the columns "Longitude" and "Latitude" to get the specific spot of every incident. Then we filter the data by Year and state, each incident is plotted as a red dot on map. 
-We also check correctness of the longitude and latitude. As longitude range of US is (-161,-68.1).We filtered the incorrect records which is out of the range.  
-Besides as we have gun shooting character analysis, therefore, "Mass Shooting", "Officer Involved", "Child/Teen Involved", "Home Invasion" columns are extracted as the main character of gun violence in each states, as the representation of safety in each states, therefore, preprocessing of "incident characteristic" and "participant age group" is been processed.  
+Our entry point is Gun Violence Data, we want to show gun violence rate in the United States. Since this dataset only consists of records from 2014 to 2018, our analysis is focused on 2014 to 2018. We only have the first quarter violence data for 2018, so the number of casualties in 2018 is smaller than other years.  
+For each state, we calculated the sum of "n_killed" and "n_injured" of every incident, and divide it by the population of that year.    
+We filter the data by year and state. For example, In the plot of each state in each year, we used the columns "Longitude" and "Latitude" to get the specific location of every incident. Each incident is plotted as a red dot on map.   
+We also check correctness of the longitude and latitude. As the longitude range of US is (-161,-68.1). We filtered the incorrect records which are out of the range.    
+Besides as we have different gun shooting types, such as "Mass Shooting", "Officer Involved", "Child/Teen Involved", "Home Invasion". These variables could represent the safety situation in each state.
 
 ## Gun Background Check Data  
 
-As a large number of data are missing in this dataframe, only "states","date","totals" columns with no missing value. And other columns are not used.  
+We only used columns "states","date","totals", and there are no missing values in these variables. 
 
 ## Population Data
 
-We cleaned the population data to transform it into the population by state and by year. The cleaned data is in the folder of "dataset", named "clean_population_by_state".  
+We cleaned the population data to transform it into the population by state and by year. The cleaned dataset is in the folder of "dataset", named "clean_population_by_state".  
 
 ## GDP Data  
 
-The GDP data is total GDP of each states from 1999 to 2018. And units of it is Millions of current dollars. As it has been already combined when collecting, therefore, there is no need to clean this data.  
+The GDP dataset contains the GDP of each state from 1999 to 2018. And the unit of it is Millions of current dollars. 

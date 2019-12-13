@@ -37,7 +37,7 @@ back_check=read.csv("dataset/nics-firearm-background-checks copy.csv")
 GDP<-read.csv("dataset/GDP_states.csv")
 GDP_sub<-GDP %>% select(-c(1,2,4,5,6,7,8,9))
 
-gun_character <- read.csv("dataset/gun-violence-character.csv")
+gun_character <- read.csv("dataset/gun-violence-character_year.csv")
 #uem_month=read.csv("dataset/unemployment_states_by_month.csv")
 population_tp=read.csv("dataset/clean_population_by_state.csv")
 population<-select(population_tp,2,3,4)
@@ -47,29 +47,35 @@ back_check["year"]=str_sub(back_check$month,1,4)
 ```
 
 
-## Missing Value of Gun Violence Data  
-```{r include=FALSE}
+## Missing Values of Gun Violence Data  
+
+In the gun violence data, we need date, state, killed number, injured number, longitude and latitude, and some character attributes. Therefore, we focus on the missing pattern of these variables. 
+
+```{r echo=FALSE}
 visna(gun_vio,sort="b")
 colSums(is.na(gun_vio))
 ```
-As what we need of gun violence is date, state, killed number, injured number, longitude and latitude, and some character attributes. Therefore, the missing pattern are based on these volumns. As shown in the graph, more than 90% value are not missing, and only small number of gun violence records miss some lattitude and longitude. Because this dataframe is larger than 230,000 records, therefore, only missing about 8000 records is acceptable.  
+
+As shown in the graph, more than 90% value are not missing, and only small number of gun violence records miss some lattitude and longitude. Because this dataframe is larger than 230,000 records, therefore, only missing about 8000 records is acceptable.  
 
 ## Missing Value of Gun background check Data  
-```{r echo=FALSE}
+
+```{r echo=FALSE, warning=FALSE}
 visna(back_check,sort="b")
 colSums(is.na(back_check))
 ```
 
-A lot of firearm background checking data are missing, this is out of two reason:  
-* Difference of state laws: For example, there is a large number of missing values in "returned_*" ("returned_handgun", "returned_long_gun", "returned_other", "rentals_handgun", "rentals_long_gun"). According to FBI-NICS website, "As of January 20, 2015, Title 28, Code of Federal Regulations, Part 25, allows local, state, tribal, and federal law enforcement agencies to access the NICS to conduct background checks for the purpose of returning firearms in their possession to an individual (e.g., at the conclusion of a case). ", therefore, some states don't have returned long guns or short guns data.  
-* The missing details of purchasing: For example, there are some missing values in "private_sale" ("private_sale_handgun", "private_sale_long_gun", "private_sale_other"), as private sellers represent unlicensed sellers, and only 24/50 states has gun laws about back ground checking When Seller Is Not a Licensed Dealer(https://consumer.findlaw.com/consumer-transactions/private-gun-sale-laws-by-state.html), therefore, some details of private sales are missing.  
-According to the summary of missing values, the most common mode of missing value is missing returned firearms, private sales and permit recheck data. As the what we used of this dataframe is totals, and this column has no missing values, therefore, it can be used.  
+A lot of firearm background checking data are missing, this is out of two reason:   
+1) Difference of state laws: For example, there is a large number of missing values in "returned_" ("returned_handgun", "returned_long_gun", "returned_other", "rentals_handgun", "rentals_long_gun"). According to FBI-NICS website, "As of January 20, 2015, Title 28, Code of Federal Regulations, Part 25, allows local, state, tribal, and federal law enforcement agencies to access the NICS to conduct background checks for the purpose of returning firearms in their possession to an individual (e.g., at the conclusion of a case). ", therefore, some states don't have returned long guns or short guns data.   
+2) The missing details of purchasing: For example, there are some missing values in "private_sale" ("private_sale_handgun", "private_sale_long_gun", "private_sale_other"), as private sellers represent unlicensed sellers, and only 24/50 states has gun laws about back ground checking When Seller Is Not a Licensed Dealer(https://consumer.findlaw.com/consumer-transactions/private-gun-sale-laws-by-state.html), therefore, some details of private sales are missing.  
+According to the summary of missing values, the most common mode of missing value is missing returned firearms, private sales and permit recheck data.In this dataset we only used the variable **totals**, and this column has no missing values, therefore, this dataset can be used.  
 
-## Missing Value of GDP and Population data  
+## Missing Value of GDP and Population Data  
+
 ```{r}
 colSums(is.na(GDP))
 ```
-As each "X20**" represents the GDP of each year and "GeoName" represents the states. And the region is just number of different regions, therefore, the only one row missing data don't effect our analysis.  
+"X20##" represents the GDP of year 20## and "GeoName" represents the states. The only missing value is region. "region" is the number of regions in each state, therefore, this missing value doesn't effect our analysis.  
 
 ```{r}
 colSums(is.na(population))
