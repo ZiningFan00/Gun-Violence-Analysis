@@ -18,4 +18,10 @@ Gun is not allowed in our country (China) while is legal in United States, we wa
 
 **Why we struggled?**  
 1. Transforming and cleaning data is painful, because the size of our dataset is large, and some datasets are combined from multiple data files. For instance, the GDP for different states are in different files, we need to put them together. 
-2. It’s the first time we use bookdown and shiny. Both are not easy to use and we encountered many problems. For example, the Shiny app is very slow and it takes too long to load the map, so we finally used a simple map in order eo get a better user experience. Also, the published bookdown did not show the images generated from R chunks at first, but we figured it out.
+2. It’s the first time we use bookdown and shiny. Both are not easy to use and we encountered many problems. For example, the Shiny app is very slow and it takes too long to load the map, so we finally used a simple map in order to get a better user experience. Also, the published bookdown did not show the images generated from R chunks at first, but we figured it out.
+
+## Future Work
+
+In the future we could explore more in detail about the participants in these gun violences to take demographical information into account, such as the relationship between these participants and their gender and their roles in the incidents.
+
+Besides we could explore more about the locations that these incidents happen to get more specific distributions about the gun violence.

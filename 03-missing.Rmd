@@ -51,7 +51,7 @@ back_check["year"]=str_sub(back_check$month,1,4)
 
 In the gun violence data, we need date, state, killed number, injured number, longitude and latitude, and some character attributes. Therefore, we focus on the missing pattern of these variables. 
 
-```{r echo=FALSE}
+```{r echo=FALSE,warning=FALSE}
 visna(gun_vio,sort="b")
 colSums(is.na(gun_vio))
 ```

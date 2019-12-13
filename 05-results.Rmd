@@ -344,7 +344,7 @@ data_new <- data_new %>%
   filter(year=="2017")
 ```
 
-```{r echo=FALSE, fig.height=7, fig.width=5, warning=FALSE}
+```{r echo=FALSE, fig.height=7, fig.width=5, warning=FALSE,message=FALSE}
 qmplot(lon,lat,data=data_new,colour="red",zoom=9,size = I(1.1),maptype="toner-lite",main = "Gun violence in California in 2017")+
   theme(legend.position = "none")
 ```
@@ -457,7 +457,7 @@ Seen from the statistic chart, we know that the characteristic of a gun violence
 **Mass Shooting**  
 
 One damage that we would like to know is about the trends of mass shooting across the countries through these years.  
-```{r include=FALSE}
+```{r echo=FALSE}
 mass_shooting<-gun_vio%>%
   filter( `Mass.Shooting`==TRUE  )%>%
   filter(!is.na(lon))
@@ -620,7 +620,7 @@ back_check_plot <- plot_ly(data = back_check_2017, x = ~Background_Check_avg, y 
          xaxis = list(zeroline = FALSE))
 ```
 
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE,message=FALSE}
 back_check_plot
 ```
 
@@ -652,7 +652,7 @@ GDP_2017_plot <- plot_ly(data = GDP_2017, x = ~GDP_avg, y = ~casualty_avg,
          xaxis = list(title="GDP"))
 ```
 
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE,message=FALSE}
 GDP_2017_plot
 ```
 
