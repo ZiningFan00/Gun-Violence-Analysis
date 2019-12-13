@@ -2,12 +2,12 @@
 
 ## Our Work
 
-Answers to the questions in introduction:
-1. Washington DC has the largest number of gun violence casualties per 100k people from 2014-2018, so it is the most dangerous state in terms of gun violence.
-2. The number of casualties caused by gun violence is increasing by year
-3. The most common gun violence characteristic involved is getting injured
-4. There is a weak positive correlation between gun violence and gun possession and there is no correlation between gun violence and the economic condition.
-5. The southeast part of US is relatively more dangerous in terms of gun violence.
+Answers to the questions in introduction:  
+1. Washington DC has the largest number of gun violence casualties per 100k people from 2014-2018, so it is the most dangerous state in terms of gun violence.  
+2. The number of casualties caused by gun violence is increasing by year.  
+3. The most common gun violence characteristic involved is getting injured.  
+4. There is a weak positive correlation between gun violence and gun possession and there is no correlation between gun violence and the economic condition.  
+5. The southeast part of US is relatively more dangerous in terms of gun violence.  
 
 ## Our Difficulties
 
@@ -17,8 +17,8 @@ We suffered a lot in this project. However, we also learned a lot after finishin
 Gun is not allowed in our country (China) while is legal in United States, we want to learn more about it. At the very start, we focused purely on gun possession. Then we realized we need more data to support our analysis. We started to look for  population data, background check data as well as the GDP data.
 
 **Why we struggled?**  
-1. Transforming and cleaning data is painful, because the size of our dataset is large, and some datasets are combined from multiple data files. For instance, the GDP for different states are in different files, we need to put them together. 
-2. It’s the first time we use bookdown and shiny. Both are not easy to use and we encountered many problems. For example, the Shiny app is very slow and it takes too long to load the map, so we finally used a simple map in order to get a better user experience. Also, the published bookdown did not show the images generated from R chunks at first, but we figured it out.
+1. Transforming and cleaning data is painful, because the size of our dataset is large, and some datasets are combined from multiple data files. For instance, the GDP for different states are in different files, we need to put them together.  
+2. It’s the first time we use bookdown and shiny. Both are not easy to use and we encountered many problems. For example, the Shiny app is very slow and it takes too long to load the map, so we finally used a simple map in order to get a better user experience. Also, the published bookdown did not show the images generated from R chunks at first, but we figured it out.  
 
 ## Future Work
 
