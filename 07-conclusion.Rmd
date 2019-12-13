@@ -2,13 +2,14 @@
 
 ## Our Work
 
-Answers to the questions in introduction:  
+Answers to the questions in introduction:    
 
-1. Washington DC has the largest number of gun violence casualties per 100k people from 2014-2018, so it is the most dangerous state in terms of gun violence.
-2. The number of casualties caused by gun violence is increasing by year
-3. The most common gun violence characteristic involved is getting injured
-4. There is a weak positive correlation between gun violence and gun possession and there is no correlation between gun violence and the economic condition.
-5. The southeast part of US is relatively more dangerous in terms of gun violence.
+1. Washington DC has the largest number of gun violence casualties per 100k people from 2014-2018, so it is the most dangerous state in terms of gun violence.  
+2. The number of casualties caused by gun violence is increasing by year.  
+3. The most common gun violence characteristic involved is getting injured.  
+4. There is a weak positive correlation between gun violence and gun possession and there is no correlation between gun violence and the economic condition.  
+5. The southeast part of US is relatively more dangerous in terms of gun violence.  
+
 
 ## Our Difficulties
 
